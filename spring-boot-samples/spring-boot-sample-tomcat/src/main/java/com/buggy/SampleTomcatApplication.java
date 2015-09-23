@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package sample.tomcat;
+package com.buggy;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;

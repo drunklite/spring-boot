@@ -38,6 +38,7 @@ public class SampleAopApplication implements CommandLineRunner {
 
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(SampleAopApplication.class, args);
+		
 	}
 
 }

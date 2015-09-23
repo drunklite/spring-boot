@@ -14,25 +14,19 @@
  * limitations under the License.
  */
 
-package sample.tomcat.web;
+package com.buggy.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
-import sample.tomcat.service.HelloWorldService;
+@Component
+public class HelloWorldService {
 
-@Controller
-public class SampleController {
+	@Value("${name:World}")
+	private String name;
 
-	@Autowired
-	private HelloWorldService helloWorldService;
-
-	@RequestMapping("/")
-	@ResponseBody
-	public String helloWorld() {
-		return this.helloWorldService.getHelloMessage();
+	public String getHelloMessage() {
+		return "Hello " + this.name;
 	}
 
 }
