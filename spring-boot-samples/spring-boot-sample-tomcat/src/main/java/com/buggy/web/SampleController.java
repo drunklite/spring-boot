@@ -32,7 +32,13 @@ public class SampleController {
     @ResponseBody
     public String helloWorld() {
 
-        return this.helloWorldService.getHelloMessage();
+        return this.helloWorldService.getHelloMessage()+"--JrebelWorking...";
+    }
+
+    @RequestMapping("/self")
+    @ResponseBody
+    public String selfDefine(){
+        return "selfDefine function";
     }
 
 }

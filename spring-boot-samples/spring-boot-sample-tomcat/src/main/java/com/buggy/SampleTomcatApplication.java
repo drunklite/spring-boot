@@ -19,6 +19,7 @@ package com.buggy;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.boot.SpringApplication;
@@ -28,27 +29,30 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class SampleTomcatApplication {
 
-	private static Log logger = LogFactory.getLog(SampleTomcatApplication.class);
+    private static Log logger = LogFactory.getLog(SampleTomcatApplication.class);
 
-	@Bean
-	protected ServletContextListener listener() {
-		return new ServletContextListener() {
+    @Bean
+    protected ServletContextListener listener() {
+        return new ServletContextListener() {
 
-			@Override
-			public void contextInitialized(ServletContextEvent sce) {
-				logger.info("ServletContext initialized");
-			}
+            @Override
+            public void contextInitialized(ServletContextEvent sce) {
+                logger.info("ServletContext initialized");
+                System.out.print("abc");
+            }
 
-			@Override
-			public void contextDestroyed(ServletContextEvent sce) {
-				logger.info("ServletContext destroyed");
-			}
+            @Override
+            public void contextDestroyed(ServletContextEvent sce) {
+                logger.info("ServletContext destroyed");
+            }
 
-		};
-	}
+        };
+    }
 
-	public static void main(String[] args) throws Exception {
-		SpringApplication.run(SampleTomcatApplication.class, args);
-	}
+    public static void main(String[] args) throws Exception {
+        SpringApplication.run(SampleTomcatApplication.class, args);
+
+
+    }
 
 }
