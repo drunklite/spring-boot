@@ -17,6 +17,8 @@
 package com.buggy.web;
 
 import com.buggy.service.HelloWorldService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +33,9 @@ public class SampleController {
     @RequestMapping("/")
     @ResponseBody
     public String helloWorld() {
+
+        Logger logger = LoggerFactory.getLogger(SampleController.class);
+        logger.info("log with slf4j");
 
         return this.helloWorldService.getHelloMessage()+"--JrebelWorking...";
     }
